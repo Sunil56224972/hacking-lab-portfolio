@@ -1,6 +1,6 @@
 <div align="center">
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=00ff41&height=160&section=header&text=WRETCHED+LAB&fontSize=38&fontColor=000000&fontAlign=50&fontAlignY=55&animation=fadeIn&desc=wretched-lab.github.io&descSize=14&descAlignY=78&descAlign=50&descFontColor=000000)
+![header](https://capsule-render.vercel.app/api?type=waving&color=00ff41&height=160&section=header&text=WRETCHED+LAB&fontSize=38&fontColor=000000&fontAlign=50&fontAlignY=62)
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=20&duration=2800&pause=900&color=00FF41&center=true&vCenter=true&width=500&lines=Cybersecurity+Researcher;IoT+Hacker+%7C+Embedded+Dev;WiFi+Attacks+%7C+BadUSB+%7C+Payloads;Kawardha%2C+Chhattisgarh+%F0%9F%87%AE%F0%9F%87%B3)](https://git.io/typing-svg)
 
@@ -52,3 +52,4 @@ Self-taught hacker. I build offensive security tools on embedded hardware —
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=00ff41&height=80&section=footer)
 
 </div>
+###
