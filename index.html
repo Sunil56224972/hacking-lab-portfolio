@@ -1170,8 +1170,104 @@
     .project-card:hover::before { left: 0; }
     .project-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 40px rgba(0,255,65,0.12); transform: translateY(-6px) !important; }
     .project-icon {
-      width: 60px; height: 60px; margin-bottom: 1.2rem;
-      filter: drop-shadow(0 0 8px rgba(0,255,65,0.3));
+      width: 70px; height: 70px; margin-bottom: 1.2rem;
+      filter: drop-shadow(0 0 10px rgba(0,255,65,0.4));
+      transition: filter 0.3s ease;
+    }
+    .project-card:hover .project-icon {
+      filter: drop-shadow(0 0 18px rgba(0,255,65,0.7));
+    }
+    /* Hover: speed up all icon animations */
+    .project-card:hover .project-icon svg {
+      animation-duration: 0.35s !important;
+    }
+    /* Face recog scan dots pulse */
+    @keyframes faceScan {
+      0%,100% { opacity: 0.4; r: 1.5; }
+      50%     { opacity: 1;   r: 2.5; filter: drop-shadow(0 0 3px #00ff41); }
+    }
+    /* Cockroach legs wiggle */
+    @keyframes legWiggle {
+      0%,100% { transform: rotate(0deg); }
+      50%     { transform: rotate(12deg); }
+    }
+    /* WiFi signal rings cascade */
+    @keyframes wifiRing {
+      0%   { opacity: 0; transform: scale(0.3); }
+      40%  { opacity: 1; }
+      100% { opacity: 0; transform: scale(1.3); }
+    }
+
+    /* ══════════════════════════════════════════
+       PROJECT ICON KEYFRAMES — All 6 projects
+    ══════════════════════════════════════════ */
+
+    /* PICO RUBBER DUCKY — cute waddling duck */
+    @keyframes waddle {
+      0%   { transform: rotate(-8deg) translateY(0px) scale(1); }
+      25%  { transform: rotate(0deg)  translateY(-4px) scale(1.05); }
+      50%  { transform: rotate(8deg)  translateY(0px) scale(1); }
+      75%  { transform: rotate(0deg)  translateY(-4px) scale(1.05); }
+      100% { transform: rotate(-8deg) translateY(0px) scale(1); }
+    }
+
+    /* TROJAN.COCKROACH — skittering scurry */
+    @keyframes scurry {
+      0%   { transform: translate(0,0) rotate(0deg); }
+      10%  { transform: translate(-3px,-2px) rotate(-4deg); }
+      20%  { transform: translate(2px,1px) rotate(3deg); }
+      30%  { transform: translate(-2px,2px) rotate(-2deg); }
+      40%  { transform: translate(3px,-1px) rotate(4deg); }
+      50%  { transform: translate(0,-3px) rotate(0deg) scale(1.05); }
+      60%  { transform: translate(-3px,1px) rotate(-3deg); }
+      70%  { transform: translate(2px,2px) rotate(2deg); }
+      80%  { transform: translate(-1px,-2px) rotate(-1deg); }
+      90%  { transform: translate(2px,0px) rotate(3deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
+    }
+
+    /* ESP8266 CAPTIVE PORTAL — satellite dish spinning */
+    @keyframes satSpin {
+      0%,100% { transform: rotate(-12deg); }
+      50%     { transform: rotate(12deg); }
+    }
+    @keyframes signalPulse {
+      0%,100% { opacity: 0.2; stroke-width: 1.5; }
+      50%     { opacity: 1;   stroke-width: 2.5; filter: drop-shadow(0 0 4px #00ff41); }
+    }
+
+    /* WIFI PASSWORD STEALER — key spinning */
+    @keyframes keySpin {
+      0%   { transform: rotate(0deg) scale(1); }
+      20%  { transform: rotate(-15deg) scale(1.08); }
+      50%  { transform: rotate(20deg) scale(1.05); }
+      70%  { transform: rotate(-10deg) scale(1.1); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    /* WIFI BLASTER — explosion pulsing */
+    @keyframes explode {
+      0%   { transform: scale(1) rotate(0deg); filter: brightness(1); }
+      30%  { transform: scale(1.18) rotate(8deg); filter: brightness(1.4) drop-shadow(0 0 8px #FF6B00); }
+      60%  { transform: scale(0.92) rotate(-5deg); filter: brightness(0.9); }
+      80%  { transform: scale(1.1) rotate(4deg); filter: brightness(1.2) drop-shadow(0 0 6px #FFD700); }
+      100% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+    }
+    @keyframes spark {
+      0%,100% { transform: translate(var(--sx,0),var(--sy,0)) scale(1); opacity: 1; }
+      50%     { transform: translate(calc(var(--sx,0)*2), calc(var(--sy,0)*2)) scale(0.4); opacity: 0.3; }
+    }
+
+    /* FACE RECOGNITION ATTENDANCE — cap floating */
+    @keyframes capFloat {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      25%     { transform: translateY(-5px) rotate(-3deg); }
+      50%     { transform: translateY(-8px) rotate(0deg) scale(1.04); }
+      75%     { transform: translateY(-5px) rotate(3deg); }
+    }
+    @keyframes tassel {
+      0%,100% { transform: rotate(0deg); }
+      50%     { transform: rotate(18deg); }
     }
     .project-tag {
       display: inline-block; font-size: 0.58rem; letter-spacing: 2px;
@@ -2804,7 +2900,7 @@
 
     <div class="project-card">
       <div class="project-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:waddle 1.2s ease-in-out infinite;">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:waddle 1.0s ease-in-out infinite; transform-origin:32px 38px;">
           <!-- Duck body -->
           <ellipse cx="32" cy="42" rx="20" ry="14" fill="#FFD700"/>
           <!-- Duck head -->
@@ -2833,7 +2929,7 @@
 
     <div class="project-card">
       <div class="project-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:scurry 0.8s ease-in-out infinite;">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:scurry 0.6s ease-in-out infinite; transform-origin:32px 38px;">
           <!-- Body -->
           <ellipse cx="32" cy="38" rx="10" ry="16" fill="#5D4037"/>
           <!-- Head -->
@@ -2867,7 +2963,7 @@
 
     <div class="project-card">
       <div class="project-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:satSpin 2s ease-in-out infinite;">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:satSpin 1.4s ease-in-out infinite; transform-origin:30px 40px;">
           <!-- Dish -->
           <path d="M10 50 Q10 28 30 28 Q50 28 50 50 Z" fill="#B0BEC5" stroke="#78909C" stroke-width="1.5"/>
           <ellipse cx="30" cy="28" rx="20" ry="5" fill="#90A4AE" stroke="#78909C" stroke-width="1"/>
@@ -2891,7 +2987,7 @@
 
     <div class="project-card">
       <div class="project-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:keySpin 2s ease-in-out infinite;">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:keySpin 1.5s ease-in-out infinite; transform-origin:32px 32px;">
           <!-- Key ring -->
           <circle cx="22" cy="28" r="14" fill="none" stroke="#FFD700" stroke-width="4"/>
           <circle cx="22" cy="28" r="7" fill="none" stroke="#FFD700" stroke-width="2.5"/>
@@ -2917,7 +3013,7 @@
 
     <div class="project-card">
       <div class="project-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:explode 0.9s ease-in-out infinite;">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:explode 0.7s ease-in-out infinite; transform-origin:32px 32px;">
           <!-- Explosion burst shape -->
           <polygon points="32,4 38,20 54,16 44,28 60,34 44,36 52,52 36,44 32,60 28,44 12,52 20,36 4,34 20,28 10,16 26,20" fill="#FF6B00" opacity="0.9"/>
           <!-- Inner bright core -->
@@ -2940,7 +3036,7 @@
 
     <div class="project-card">
       <div class="project-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:capFloat 2s ease-in-out infinite;">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="animation:capFloat 1.8s ease-in-out infinite; transform-origin:32px 32px;">
           <!-- Cap top (mortarboard) -->
           <polygon points="32,8 62,24 32,36 2,24" fill="#1565C0" stroke="#0D47A1" stroke-width="1"/>
           <!-- Cap body/cylinder -->
@@ -3188,10 +3284,10 @@
             </div>
             <div class="sc-text">
               <span class="sc-name">DISCORD</span>
-              <span class="sc-handle">Add your ID</span>
+              <span class="sc-handle">sunil3321</span>
               <span class="sc-status">
                 <span class="sc-dot"></span>
-                <span class="sc-status-text">Join server</span>
+                <span class="sc-status-text">Send a message</span>
               </span>
             </div>
           </div>
